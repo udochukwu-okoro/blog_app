@@ -1,0 +1,37 @@
+<!-- entries/templates/entries/base.html -->
+
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="{% static 'favicon.jpg' %}" type="image/jpg">
+    <meta charset="UTF-8" />
+    <title>Udochukwu and Oluwaseun's Blog</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/diary.css' %}" /> -->
+  </head>
+
+  <body>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mt-3 text-center">
+          <h1>Udochukwu and Oluwaseun's Blog</h1>
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+            <li class="message">{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %} {% block content %}{% endblock %}
+          <hr />
+          <a
+           class="btn btn-primary" href="{% url 'admin:logout' %}">Logout</a>
+        </div>
+      </div>
+  </body>
+</html>
